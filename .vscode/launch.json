@@ -8,7 +8,7 @@
             "name": "cim_training",
             "request": "launch",
             "type": "dart",
-            "deviceId": "macos"
+            "deviceId": "chrome"
         },
         {
             "name": "cim_training (profile mode)",
