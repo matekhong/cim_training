@@ -12,8 +12,8 @@ class MachineTable extends StatelessWidget {
     List<String> columns = ['Machine Code', 'Capacity', 'Plan', 'Actual'];
     statusMachines = [
       MachineStatus('MC01', '600', '500', '650'), //0
-      MachineStatus('MC02', '400', '600', '350'), //1
-      MachineStatus('MC03', '300', '500', '750'),
+      MachineStatus('MC02', '400', '350', '350'), //1
+      MachineStatus('MC03', '300', '800', '750'),
       MachineStatus('MC04', '300', '500', '750'),
       MachineStatus('MC05', '300', '500', '750') //2
     ];
@@ -27,8 +27,27 @@ class MachineTable extends StatelessWidget {
       rows: [
         for (MachineStatus statusMachine in statusMachines)
           DataRow(cells: [
-            DataCell(Text(statusMachine.machineCode)),
-            DataCell(Text(statusMachine.capacity), showEditIcon: true),
+            DataCell(Text(
+              statusMachine.machineCode,
+              style: TextStyle(
+                  color: int.parse(statusMachine.actual) >
+                          int.parse(statusMachine.plan)
+                      ? Colors.red
+                      : Colors.green),
+            )),
+            DataCell(
+                Text(
+                  statusMachine.capacity,
+                  style: TextStyle(
+                      fontWeight: int.parse(statusMachine.actual) >
+                              int.parse(statusMachine.plan)
+                          ? FontWeight.bold
+                          : int.parse(statusMachine.actual) ==
+                                  int.parse(statusMachine.plan)
+                              ? FontWeight.normal
+                              : FontWeight.w300),
+                ),
+                showEditIcon: true),
             DataCell(Text(statusMachine.plan)),
             DataCell(Text(statusMachine.actual)),
           ]),

@@ -1,5 +1,5 @@
 import 'package:cim_training/widgets/bodytitle.dart';
-import 'package:cim_training/widgets/machintable.dart';
+import 'package:cim_training/widgets/booktable.dart';
 import 'package:cim_training/widgets/titleappbar.dart';
 import 'package:flutter/material.dart';
 
@@ -34,7 +34,7 @@ class _MainPageState extends State<MyApp> {
                   onChanged: (value) => setState(() => this.value = value),
                 ),
                 Divider(),
-                MachineTable()
+                BookTable()
               ],
             ),
             color: Colors.yellow[50],
